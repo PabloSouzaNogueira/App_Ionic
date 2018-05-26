@@ -1,0 +1,49 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Bandas</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="card-background-page">
+
+<ion-card *ngFor="let b of bandas">
+  
+  <img src="{{b.imagem}}"/>
+  <div class="card-title">{{b.titulo}}</div>
+  <div class="card-subtitle">{{b.descricao}}</div>
+
+<hr class="divisor" width=100% />
+
+<div class="card-curti">Musica da Banda</div>
+<button ion-item (click)="musicaIniciarParar(b.codigo)">
+  <div class="card-tocar">Clique aqui para ouvir...</div>
+    <ion-icon [name]="isTocando ? 'square' : 'play' " item-right></ion-icon>      
+   
+</button>
+
+
+<div class="card-curti">Curti a banda?</div>
+
+
+<button ion-item (click)="showConfirmLike(b.codigo)">
+    <ion-icon name="thumbs-up" item-right></ion-icon>
+    <ion-badge  item-right>{{b.likes}}</ion-badge>
+</button>
+
+<hr class="divisor" width=100% />
+
+<button ion-item (click)="showConfirmDeslike(b.codigo)">
+    <ion-icon name="thumbs-down" item-right></ion-icon>      
+    <ion-badge color="danger" item-right>{{b.deslikes}}</ion-badge>
+</button>
+
+
+
+</ion-card>
+
+</ion-content>
+
+
